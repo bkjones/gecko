@@ -1,0 +1,34 @@
+%YAML 1.2
+---
+
+AMQP:
+  Connection:
+    host: localhost
+    port: 5672
+    virtual_host: /
+  Management:
+    host: localhost
+    port: 55672
+    user: guest
+    password: guest
+  Exchange: &x1
+    exchange: TestExch
+    type: direct
+    passive: False
+    durable: True # if True, persists through broker restarts.
+  Queue: &q1
+    queue: TestQ
+    durable: True
+    exclusive: False
+    passive: False
+  Binding:
+    queue: *q1
+    exchange: *x1
+    routing_key: foo
+  AutoScaling:
+    min_workers: 3
+    max_workers: 10
+    max_err: 5
+    requeue_on_err: False
+    spawn_depth: 100
+    mps_max: 0

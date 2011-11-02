@@ -1,0 +1,7 @@
+This is just some test code I was kicking around. I stumbled across it and decided to 
+put it somewhere that I'm likely to see it and pick it up again. 
+
+The idea is to make it relatively quick and easy to develop new AMQP message 
+processors. It uses the pika asynchronous AMQP client, and the Tornado ioloop.
+
+
